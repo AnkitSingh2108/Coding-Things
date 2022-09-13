@@ -1,0 +1,62 @@
+<snippet>
+	<content><![CDATA[
+int a[N];
+int tree[4 * N + 10];
+int upd[4*N + 10];
+bool lazy[4*N+10];
+void apply(int v, int tl, int tr, int val){
+	tree[v] = val*(tr-tl+1);  // for point update
+	// tree[v] += val*(tr-tl+1); // for addition on range.
+	if(tl!=tr){
+		lazy[v] = true;
+		upd[v] += val;    // for addition on range and point update
+	}
+}
+void pushdown(int v, int tl, int tr){
+	if(lazy[v]==true){
+		lazy[v] = false;
+		int tm = (tl+tr)/2;
+		apply(2*v, tl, tm, upd[v]);
+		apply(2*v+1,tm,tr,upd[v]);
+	}
+}
+void update(int v, int tl, int tr, int l, int r, int val){
+	if(tl>r || tr<l) return;
+	if(l<=tl && r>=tr){
+		apply(v,tl,tr,val);
+		return;
+	}
+	pushdown(v,tl,tr);
+	int tm = (tl+tr)/2;
+	update(2*v, tl, tm, l, r, val);
+	update(2*v+1, tm+1, tr, l, r, val);
+	tree[v] = tree[2*v] + tree[2*v + 1];  // check here
+}
+void build(int v, int tl, int tr) {
+	if (tl > tr) return;
+	if (tl == tr) {
+		tree[v] = a[tl]; return;
+	}
+	int mid = (tl + tr) / 2;
+	build(2 * v, tl, mid);
+	build(2 * v + 1, mid + 1, tr);
+	tree[v] = (tree[2 * v] + tree[2 * v + 1]); // check here
+}
+
+int query(int v, int tl, int tr, int l, int r) {
+	if (tl > r || tr < l) return 0;  // check here e.g. inf for min query.
+	if (l <= tl && r >= tr) return tree[v];
+	pushdown(v,tl,tr);
+	int tm = (tl + tr) / 2;
+	int a = query(2 * v, tl, tm, l, r);
+	int b = query(2 * v + 1, tm + 1, tr, l, r);
+	return a+b;   // check here
+}
+// input array is initialised and should be 1 index based.
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>segtree2</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

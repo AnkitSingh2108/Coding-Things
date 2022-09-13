@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+auto cmp = [](const pii& a, const pii& b){
+	bool ans = (a.S-a.F)<(b.S-b.F); // use '<' instead of '<=' to avoid runtime error
+	return ans;
+};
+sort(all(v), cmp);
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>comp</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>

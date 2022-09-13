@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[
+vi mex_prefix(vi &a){
+	int n = a.size();
+	vi ans;
+	set<int> st;
+	rep(i,0,n) st.insert(i);
+	rep(i,0,n-1){
+		st.erase(a[i]);
+		ans.pb(*st.begin());
+	}
+	return ans;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>mex_prefix</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>
