@@ -1,0 +1,15 @@
+Install Sublime text.
+Press Cmd+Shift+P then install package control.
+Press Cmd+Shift+P then click on Install package.
+search for CppFastOlympicCoding and install it.
+Then Press Cmd+Shift+P then Browse Packages.
+Go to packages. Download the package from github link -> https://github.com/DrSwad/FastOlympicCodingHook.
+extract it and rename it to FastOlympicCodingHook. This should be in packages folder.
+On Chrome Browser install an extension of Competitive Companion. Go to options of this extentions and put 12345 in custom ports.
+Create file as solution.cpp at any folder and write your code in it.
+To parse the test cases from online problem, right click on where you are writing the code in sublime then click on Listen to Competitive Companion.
+Then go to problem page in the browser and click on the extension. It will parse the test cases.
+To run press Cmd+Shift+P in sublime then enter run and click on CppFastOlympicCoding:Run. It will test for sample test cases.
+
+Click on Sublime text->preferences->package settings->FastOlympicCoding, setting page will come.
+Go to run settings for C++ and edit compile_cmd and lint_compile_cmd attributes from 'gnu++11' to 'gnu++17'.
