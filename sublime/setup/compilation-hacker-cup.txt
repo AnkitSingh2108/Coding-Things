@@ -1,0 +1,6 @@
+To compile a c++ file - c++ solution.cpp
+To compile without warning - c++ solution.cpp -w
+Now to run the code and take input from input_file and output to output_file-
+```
+./a.out < input_file > output_file
+```
