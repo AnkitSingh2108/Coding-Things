@@ -1,0 +1,18 @@
+git config --global user.name "name"
+git config --global user.email "email"
+git init (to initialise git in a repository, to track using git)
+git add .
+git commit -m "message"
+git push
+
+git status
+git log
+To create a new branch and switch to it, use the git branch command, followed by the name of the new branch -> git branch new_branch
+git checkout br_name -> to move to br_name
+
+To merge the changes from one branch into another, switch to the target branch and use the git merge command followed by the source branch:
+git checkout target_branch
+git merge source_branch
+
+add SSH key to accound->setting->SSH Keys
+git remote add origin
