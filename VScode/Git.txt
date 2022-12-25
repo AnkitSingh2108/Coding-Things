@@ -16,3 +16,7 @@ git merge source_branch
 
 add SSH key to accound->setting->SSH Keys
 git remote add origin
+
+-> to revert the last push
+git reset --hard HEAD^
+Git push -f
